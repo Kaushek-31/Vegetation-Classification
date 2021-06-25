@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jan 22 00:51:29 2020
+
+@author: kaushek
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt # visualize satellite images
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+from skimage.io import imshow # visualize satellite images
+
+x_train_set_fpath = '/home/kaushek/Pictures/test1.csv'
+
+X_train = pd.read_csv(x_train_set_fpath)
+
+X_train = X_train.as_matrix()
+
+print ('We have',X_train.shape[0],'examples and each example is a list of',X_train.shape[1],'numbers.')
+
+print (X_train.shape)
+
+imshow(np.squeeze(X_train[:,:,0:3]).astype(float))
+plt.show()
